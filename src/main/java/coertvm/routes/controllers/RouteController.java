@@ -40,8 +40,8 @@ public class RouteController {
     Route update(@RequestBody Route route, @PathVariable Long id) {
         return repository.findById(id)
             .map(foundRoute -> {
-                foundRoute.setPlanet1(route.getPlanet1());
-                foundRoute.setPlanet2(route.getPlanet2());
+                foundRoute.setFrom(route.getFrom());
+                foundRoute.setTo(route.getTo());
                 foundRoute.setDistance(route.getDistance());
                 return repository.save(foundRoute);
             })
